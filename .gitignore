@@ -1,0 +1,175 @@
+# MockForge .gitignore
+
+# ========================================
+# DOCUMENTATION & PLANNING (Keep in VCS)
+# ========================================
+# We keep docs/, DEVELOPMENT_PHASES.md, COMMIT_HISTORY.md
+# in version control for project history
+
+# ========================================
+# BUILD ARTIFACTS
+# ========================================
+
+# Java / Maven
+backend/target/
+backend/*.jar
+backend/*.war
+backend/*.class
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# Node / NPM
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/out/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ========================================
+# DATABASES & DATA
+# ========================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+**/data/
+mockforge-data/
+/var/lib/mockforge/
+
+# ========================================
+# DOCKER
+# ========================================
+docker-compose.override.yml
+
+# ========================================
+# IDEs & EDITORS
+# ========================================
+
+# IntelliJ IDEA
+**/.idea/
+**/.idea_modules/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+*.launch
+
+# NetBeans
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# ========================================
+# OPERATING SYSTEM
+# ========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ========================================
+# TEMPORARY & CACHE
+# ========================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~.nib
+*.bak
+*.cache
+
+# ========================================
+# LOGS
+# ========================================
+logs/
+*.log
+*.log.*
+
+# ========================================
+# ENVIRONMENT & SECRETS
+# ========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.key
+*.pem
+secrets/
+
+# ========================================
+# TEST ARTIFACTS
+# ========================================
+coverage/
+.nyc_output/
+junit-reports/
+test-results/
+*.test.js.snap
+
+# ========================================
+# GENERATED FILES
+# ========================================
+generated/
+.auto-generated/
+
+# ========================================
+# PROJECT EXPORTS
+# ========================================
+exports/
+*.mockforge.json
+backups/
+
+# ========================================
+# BENCHMARKS & LOAD TESTS
+# ========================================
+load-tests/results/
+benchmark-results/
+k6-results/
+
+# ========================================
+# PACKAGE MANAGER LOCKS (Keep in VCS)
+# ========================================
+# We keep package-lock.json and pom.xml
+# for reproducible builds
+
+# ========================================
+# DOCKER VOLUMES (Local only)
+# ========================================
+mockforge-volume/
+volumes/
