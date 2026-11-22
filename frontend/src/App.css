@@ -1,0 +1,121 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: var(--color-bg-secondary);
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-bottom: 2px solid var(--color-bg-tertiary);
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  color: var(--color-cyan);
+  margin: 0;
+}
+
+.tagline {
+  color: var(--color-gray);
+  margin-top: var(--spacing-xs);
+}
+
+.app-main {
+  flex: 1;
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.welcome-card {
+  background-color: var(--color-bg-secondary);
+  border: 2px solid var(--color-bg-tertiary);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+}
+
+.welcome-card h2 {
+  color: var(--color-orange);
+  font-size: 1.8rem;
+}
+
+.phase-info {
+  color: var(--color-gray);
+  margin: var(--spacing-sm) 0;
+}
+
+.status-section,
+.links-section {
+  margin-top: var(--spacing-lg);
+}
+
+.status-section h3,
+.links-section h3 {
+  color: var(--color-cyan);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.status-list,
+.links-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.status-list li,
+.links-list li {
+  padding: var(--spacing-xs) 0;
+  color: var(--color-white);
+}
+
+.links-list a {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-bg-tertiary);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.links-list a:hover {
+  background-color: var(--color-accent-red);
+  transform: translateX(4px);
+}
+
+.app-footer {
+  background-color: var(--color-bg-secondary);
+  border-top: 2px solid var(--color-bg-tertiary);
+  padding: var(--spacing-md);
+  text-align: center;
+  color: var(--color-gray);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .app-main {
+    padding: var(--spacing-md);
+  }
+}
