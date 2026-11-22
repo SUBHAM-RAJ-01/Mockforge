@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  mockforge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mockforge:local
+    container_name: mockforge
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      - MOCKFORGE_HOME=/var/lib/mockforge
+      - MOCKFORGE_PORT=8080
+      - MOCKFORGE_BIND_ADDRESS=0.0.0.0
+      - MOCKFORGE_LOG_LEVEL=INFO
+      - MOCKFORGE_CORS_ORIGINS=http://localhost:3000,http://localhost:5173
+    volumes:
+      - mockforge-data:/var/lib/mockforge
+      - ./examples:/workspace/examples:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/_mockforge/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+    networks:
+      - mockforge-network
+
+volumes:
+  mockforge-data:
+    name: mockforge-data
+
+networks:
+  mockforge-network:
+    name: mockforge-network
+    driver: bridge
