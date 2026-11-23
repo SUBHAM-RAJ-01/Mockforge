@@ -2,9 +2,6 @@
 -- Version: 1.0
 -- Phase: 0 - Foundation
 
--- Enable foreign keys
-PRAGMA foreign_keys = ON;
-
 -- Projects table
 CREATE TABLE projects (
     id TEXT PRIMARY KEY,
@@ -13,7 +10,7 @@ CREATE TABLE projects (
     base_path TEXT NOT NULL,
     storage_mode TEXT NOT NULL CHECK(storage_mode IN ('EPHEMERAL', 'PERSISTENT', 'HYBRID')),
     status TEXT NOT NULL DEFAULT 'STOPPED' CHECK(status IN ('STOPPED', 'RUNNING', 'ERROR')),
-    config_version INTEGER NOT NULL DEFAULT 1,
+    config_version BIGINT NOT NULL DEFAULT 1,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
@@ -24,7 +21,7 @@ CREATE TABLE resources (
     project_id TEXT NOT NULL,
     name TEXT NOT NULL,
     slug TEXT NOT NULL,
-    schema_version INTEGER NOT NULL DEFAULT 1,
+    schema_version BIGINT NOT NULL DEFAULT 1,
     timestamps BOOLEAN NOT NULL DEFAULT 1,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now')),
@@ -66,7 +63,7 @@ CREATE TABLE mock_records (
     id TEXT NOT NULL,
     resource_id TEXT NOT NULL,
     data_json TEXT NOT NULL,
-    version INTEGER NOT NULL DEFAULT 1,
+    version BIGINT NOT NULL DEFAULT 1,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now')),
     PRIMARY KEY (resource_id, id),
