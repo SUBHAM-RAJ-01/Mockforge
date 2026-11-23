@@ -5,12 +5,11 @@
 FROM maven:3.9-eclipse-temurin-21 AS backend-build
 WORKDIR /workspace/backend
 
-# Copy POM first for dependency caching
+# Copy POM and source together (simpler for now)
 COPY backend/pom.xml .
-RUN mvn dependency:go-offline -B
-
-# Copy source and build
 COPY backend/src ./src
+
+# Build with all dependencies
 RUN mvn clean package -DskipTests -B
 
 # Stage 2: Build frontend

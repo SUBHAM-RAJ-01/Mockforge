@@ -1,0 +1,26 @@
+# Simplified Dockerfile for Phase 0 (testing only)
+# This runs a placeholder until backend is fully implemented
+
+FROM eclipse-temurin:21-jre-jammy
+
+# Create non-root user
+RUN useradd --system --uid 10001 --create-home mockforge
+
+WORKDIR /opt/mockforge
+
+# Create data directory
+RUN mkdir -p /var/lib/mockforge && \
+    chown -R mockforge:mockforge /opt/mockforge /var/lib/mockforge
+
+# Copy a simple startup script
+RUN echo '#!/bin/bash\necho "MockForge Phase 0 - Backend not yet implemented"\necho "Waiting for Phase 1..."\ntail -f /dev/null' > /opt/mockforge/start.sh && \
+    chmod +x /opt/mockforge/start.sh
+
+USER mockforge
+
+ENV MOCKFORGE_HOME=/var/lib/mockforge \
+    MOCKFORGE_PORT=8080
+
+EXPOSE 8080
+
+CMD ["/opt/mockforge/start.sh"]
