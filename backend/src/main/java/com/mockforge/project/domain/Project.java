@@ -40,6 +40,9 @@ public class Project {
     @Column(name = "config_version", nullable = false)
     private Long configVersion = 1L;
 
+    @Column(length = 500)
+    private String description;
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
