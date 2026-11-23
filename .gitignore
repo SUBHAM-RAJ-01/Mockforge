@@ -173,3 +173,9 @@ k6-results/
 # ========================================
 mockforge-volume/
 volumes/
+
+# Documentation and planning files
+*.md
+docs/
+PHASE_*.md
+DOCKER_*.md
